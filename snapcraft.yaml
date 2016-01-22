@@ -1,14 +1,19 @@
 name: hostapd
-version: 1.2
+version: 1.4
 vendor: Kevin Lu <kevin.lu@canonical.com>
 summary: hostapd for Snappy Ubuntu Core
 description: re-package hostapd into snap for Snappy Ubuntu Core
 icon: icon.png
 binaries:
-   hostapd: 
-     exec: usr/sbin/hostapd
+  hostapd: 
+    exec: usr/sbin/hostapd
+    caps:
+      - network-client
+      - network-admin
+      - network-firewall
+      - network-service
 parts:
-    hostapd:
-        plugin: nil
-        stage-packages:
-          - hostapd
+  hostapd:
+    plugin: nil
+    stage-packages:
+      - hostapd
